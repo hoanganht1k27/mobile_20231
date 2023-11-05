@@ -1,4 +1,10 @@
 package com.example.basic_recyclerview_gmail_clone
 
-class User {
-}
+data class User(
+    var name: String,
+    var lastMessage: String,
+    var lastMsgtime: String,
+    var phoneNo: String,
+    var country: String,
+    var imageId: Int
+)
