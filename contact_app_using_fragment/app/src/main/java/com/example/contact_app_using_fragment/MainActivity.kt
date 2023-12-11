@@ -1,46 +1,63 @@
 package com.example.contact_app_using_fragment
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.contact_app_using_fragment.ui.theme.Contact_app_using_fragmentTheme
+import android.util.Log
+import android.view.ContextMenu
+import android.view.Menu
+import android.view.MenuItem
+import android.view.View
+import androidx.navigation.findNavController
+import com.example.contact_app_using_fragment.R
+import com.example.contact_app_v2.model.Person
 
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContent {
-            Contact_app_using_fragmentTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
-                }
+        setContentView(R.layout.activity_main)
+    }
+
+
+
+    override fun onCreateContextMenu(
+        menu: ContextMenu?,
+        v: View?,
+        menuInfo: ContextMenu.ContextMenuInfo?
+    ) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+        menuInflater.inflate(R.menu.menu, menu)
+    }
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.new_contact_menu -> {
+                val navController = findNavController(R.id.nav_host_fragment)
+                navController.navigate(R.id.nav_new_contact)
+                true
             }
+
+            else -> super.onOptionsItemSelected(item)
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
 
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Contact_app_using_fragmentTheme {
-        Greeting("Android")
+
+
+    companion object {
+        val contacts: MutableList<Person> = mutableListOf<Person>(
+            Person(1, "John Dang", "12345678", "johndang@gmail.com"),
+            Person(2, "Tom Boy", "03834713439", "tomboy@gmail.com"),
+            Person(3, "Fake Data", "1123912371", "fakedata@gmail.com"),
+            Person(4, "User name", "1238491", "username@gmail.com"),
+            Person(5, "Test function", "2347882", "testfunction@gmail.com"),
+            Person(6, "Validate Data", "9812374", "dalidatedata@gmail.com")
+        )
     }
 }

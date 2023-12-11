@@ -1,4 +1,5 @@
 package com.example.tutorial
 
-class MonAn {
+data class MonAn(var ten: String, var hinhanh: Int) {
+
 }

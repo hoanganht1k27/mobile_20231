@@ -1,4 +1,4 @@
-package com.example.contact_app_v2
+package com.example.contact_app_using_fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater

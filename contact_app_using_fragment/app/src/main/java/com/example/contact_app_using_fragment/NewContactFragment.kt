@@ -1,4 +1,4 @@
-package com.example.contact_app_v2
+package com.example.contact_app_using_fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,6 +9,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.example.contact_app_v2.MainActivity
 import com.example.contact_app_v2.model.Person
 
 class NewContactFragment: Fragment() {

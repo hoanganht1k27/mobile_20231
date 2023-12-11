@@ -1,4 +1,4 @@
-package com.example.contact_app_v2
+package com.example.contact_app_using_fragment
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ListView
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
+import com.example.contact_app_using_fragment.R
 import com.example.contact_app_v2.adapter.CustomAdapter
 
 class ContactListFragment : Fragment() {
